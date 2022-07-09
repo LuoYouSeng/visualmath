@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '@/assets/css/Menu.css'
 
 export default function({items, current}){
     let [isOpen, toggleOpen] = useState(false)
@@ -18,20 +19,22 @@ export default function({items, current}){
                     <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
                 </svg>
             </div>
-            {isOpen &&
-                <div className="bg-white border border-slate-300">
-                    {items.map((item, index)=>{
-                        return (
-                            <a className={`
-                                w-full text-2xl px-10 py-2 from-rose-600 to-yellow-500 inline-block
-                                ${index == current ? 'bg-gradient-to-r text-white' : ''}
-                            `} href={item.link}>
-                                {item.text}
-                            </a>
-                        )
-                    })}
-                </div>
-            }
+            <div className={`
+                    bg-white border border-t-0 border-slate-300 overflow-hidden
+                    ${isOpen ? 'open-animation' : 'max-h-0 border-b-0'}
+                `}
+            >
+                {items.map((item, index)=>{
+                    return (
+                        <a className={`
+                            w-full text-2xl px-10 py-2 border-t from-rose-600 to-yellow-500 inline-block
+                            ${index == current ? 'bg-gradient-to-r text-white' : 'hover:bg-slate-100'}
+                        `} href={item.link}>
+                            {item.text}
+                        </a>
+                    )
+                })}
+            </div>
         </div>
     )
 }

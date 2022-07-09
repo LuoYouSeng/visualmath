@@ -1,0 +1,19 @@
+.title {
+    @apply text-6xl my-16
+}
+
+.subtitle {
+    @apply text-4xl my-16
+}
+
+.paragraph {
+    @apply text-3xl my-6
+}
+
+.strong {
+    @apply font-extrabold underline underline-offset-2
+}
+
+.image {
+    @apply w-full my-6
+}
